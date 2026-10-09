@@ -1,16 +1,38 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 40px;
-}
+let count = 0;
 
-#count {
-    font-size: 40px;
-    font-weight: bold;
-}
+const countDisplay = document.getElementById("count");
+const incrementButton = document.getElementById("increment");
+const decrementButton = document.getElementById("decrement");
+const resetButton = document.getElementById("reset");
 
-button {
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
-}
+incrementButton.addEventListener("click", function () {
+    count++;
+    countDisplay.textContent = count;
+
+    if (count > 0) {
+        countDisplay.style.color = "green";
+    } else if (count < 0) {
+        countDisplay.style.color = "red";
+    } else {
+        countDisplay.style.color = "black";
+    }
+});
+
+decrementButton.addEventListener("click", function () {
+    count--;
+    countDisplay.textContent = count;
+
+    if (count > 0) {
+        countDisplay.style.color = "green";
+    } else if (count < 0) {
+        countDisplay.style.color = "red";
+    } else {
+        countDisplay.style.color = "black";
+    }
+});
+
+resetButton.addEventListener("click", function () {
+    count = 0;
+    countDisplay.textContent = count;
+    countDisplay.style.color = "black";
+});
